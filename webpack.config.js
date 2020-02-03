@@ -23,6 +23,17 @@ module.exports = {
         use: [MiniCssExtractPlugin.loader, 'css-loader'],
       },
       {
+        test: /\.ico$|\.svg$|\.woff$|\.ttf$|\.wav$|\.mp3$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[path][name].[ext]',
+            },
+          },
+        ],
+      },
+      {
         test: /\.(png|jpg|gif)$/i,
         use: [
           {
@@ -30,14 +41,6 @@ module.exports = {
             options: {
               limit: 8192,
             },
-          },
-        ],
-      },
-      {
-        test: /\.ico$/,
-        use: [
-          {
-            loader: 'file-loader',
           },
         ],
       },
