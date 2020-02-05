@@ -22,11 +22,12 @@ module.exports = {
         use: [MiniCssExtractPlugin.loader, 'css-loader'],
       },
       {
-        test: /\.(png|jpg|gif|ico)$/i,
+        test: /\.(png|jpg|gif|svg|ico)$/i,
         use: [
           {
             loader: 'file-loader',
             options: {
+              esModule: false,
               name: '[name].[ext]',
             },
           },
